@@ -5,8 +5,8 @@ import "~~/styles/globals.css";
 import { getMetadata } from "~~/utils/scaffold-eth/getMetadata";
 
 export const metadata = getMetadata({
-  title: "Scaffold-ETH 2 App",
-  description: "Built with 🏗 Scaffold-ETH 2",
+  title: "DeFiTrader - Advanced DeFi Trading Platform",
+  description: "Advanced DeFi trading platform with AI-powered insights and automated strategies",
 });
 
 const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
