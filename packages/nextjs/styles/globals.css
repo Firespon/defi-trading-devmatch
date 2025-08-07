@@ -1,65 +1,68 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* DaisyUI Theme Definitions */
 @plugin "daisyui" {
   themes: light, dark --prefersdark;
 }
 
 @plugin "daisyui/theme" {
   name: "light";
-  --color-primary: #3b82f6;
+  --color-primary: #6366f1; /* indigo-500 */
   --color-primary-content: #ffffff;
-  --color-secondary: #f1f5f9;
+  --color-secondary: #f4f4f5; /* zinc-100 */
   --color-secondary-content: #1e293b;
-  --color-accent: #8b5cf6;
+  --color-accent: #ec4899; /* pink-500 */
   --color-accent-content: #ffffff;
-  --color-neutral: #1e293b;
+  --color-neutral: #334155; /* slate-700 */
   --color-neutral-content: #ffffff;
   --color-base-100: #ffffff;
-  --color-base-200: #f8fafc;
-  --color-base-300: #e2e8f0;
-  --color-base-content: #1e293b;
-  --color-info: #3b82f6;
-  --color-success: #10b981;
-  --color-warning: #f59e0b;
-  --color-error: #ef4444;
+  --color-base-200: #f9fafb;
+  --color-base-300: #e5e7eb;
+  --color-base-content: #1f2937;
+  --color-info: #0ea5e9; /* sky-500 */
+  --color-success: #22c55e; /* green-500 */
+  --color-warning: #eab308; /* yellow-500 */
+  --color-error: #ef4444; /* red-500 */
 }
 
 @plugin "daisyui/theme" {
   name: "dark";
-  --color-primary: #3b82f6;
+  --color-primary: #8b5cf6; /* violet-500 */
   --color-primary-content: #ffffff;
-  --color-secondary: #334155;
-  --color-secondary-content: #f1f5f9;
-  --color-accent: #8b5cf6;
-  --color-accent-content: #ffffff;
-  --color-neutral: #f1f5f9;
+  --color-secondary: #1e293b; /* slate-800 */
+  --color-secondary-content: #e2e8f0;
+  --color-accent: #f472b6; /* pink-400 */
+  --color-accent-content: #1e293b;
+  --color-neutral: #e2e8f0; /* slate-200 */
   --color-neutral-content: #1e293b;
-  --color-base-100: #1e293b;
-  --color-base-200: #334155;
-  --color-base-300: #475569;
-  --color-base-content: #f1f5f9;
-  --color-info: #3b82f6;
-  --color-success: #10b981;
-  --color-warning: #f59e0b;
-  --color-error: #ef4444;
+  --color-base-100: #0f172a; /* slate-900 */
+  --color-base-200: #1e293b;
+  --color-base-300: #334155;
+  --color-base-content: #e2e8f0;
+  --color-info: #38bdf8; /* sky-400 */
+  --color-success: #4ade80; /* green-400 */
+  --color-warning: #facc15; /* yellow-400 */
+  --color-error: #f87171; /* red-400 */
 }
 
+/* Base Styles */
 @layer base {
   body {
     min-height: 100vh;
   }
-  
+
   h1, h2, h3, h4 {
     margin-bottom: 0.5rem;
-    line-height: 1;
+    line-height: 1.2;
   }
-  
+
   p {
     margin: 1rem 0;
   }
 }
 
+/* Utility Overrides */
 .btn {
   @apply shadow-md;
 }
