@@ -9,6 +9,7 @@ import { hardhat } from "viem/chains";
 import { Bars3Icon, BugAntIcon } from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useOutsideClick, useTargetNetwork } from "~~/hooks/scaffold-eth";
+import { SwitchTheme } from "./SwitchTheme";
 
 type HeaderMenuLink = {
   label: string;
@@ -17,48 +18,17 @@ type HeaderMenuLink = {
 };
 
 export const menuLinks: HeaderMenuLink[] = [
-  {
-    label: "Home",
-    href: "/",
-  },
-  {
-    label: "Trading",
-    href: "/trading",
-    icon: <TrendingUp className="h-4 w-4" />,
-  },
-  {
-    label: "AI Analysis",
-    href: "/ai-analysis",
-    icon: <Brain className="h-4 w-4" />,
-  },
-  {
-    label: "Analytics",
-    href: "/analytics",
-    icon: <PieChart className="h-4 w-4" />,
-  },
-  {
-    label: "Strategy",
-    href: "/strategy",
-    icon: <Zap className="h-4 w-4" />,
-  },
-  {
-    label: "Security",
-    href: "/security",
-    icon: <Shield className="h-4 w-4" />,
-  },
-  {
-    label: "Settings",
-    href: "/settings",
-    icon: <Settings className="h-4 w-4" />,
-  },
-  {
-    label: "Debug Contracts",
-    href: "/debug",
-    icon: <BugAntIcon className="h-4 w-4" />,
-  },
+  { label: "Home", href: "/" },
+  { label: "Trading", href: "/trading", icon: <TrendingUp className="h-4 w-4" /> },
+  { label: "AI Analysis", href: "/ai-analysis", icon: <Brain className="h-4 w-4" /> },
+  { label: "Analytics", href: "/analytics", icon: <PieChart className="h-4 w-4" /> },
+  { label: "Strategy", href: "/strategy", icon: <Zap className="h-4 w-4" /> },
+  { label: "Security", href: "/security", icon: <Shield className="h-4 w-4" /> },
+  { label: "Settings", href: "/settings", icon: <Settings className="h-4 w-4" /> },
+  { label: "Debug Contracts", href: "/debug", icon: <BugAntIcon className="h-4 w-4" /> },
 ];
 
-export const HeaderMenuLinks = () => {
+const HeaderMenuLinks = () => {
   const pathname = usePathname();
 
   return (
@@ -84,9 +54,6 @@ export const HeaderMenuLinks = () => {
   );
 };
 
-/**
- * Site header
- */
 export const Header = () => {
   const { targetNetwork } = useTargetNetwork();
   const isLocalNetwork = targetNetwork.id === hardhat.id;
@@ -105,9 +72,7 @@ export const Header = () => {
           </summary>
           <ul
             className="menu menu-compact dropdown-content mt-3 p-2 shadow-sm bg-base-100 rounded-box w-52"
-            onClick={() => {
-              burgerMenuRef?.current?.removeAttribute("open");
-            }}
+            onClick={() => burgerMenuRef?.current?.removeAttribute("open")}
           >
             <HeaderMenuLinks />
           </ul>
@@ -125,7 +90,11 @@ export const Header = () => {
           <HeaderMenuLinks />
         </ul>
       </div>
-      <div className="navbar-end grow mr-4">
+
+      <div className="navbar-end flex items-center gap-2 mr-4">
+        <div className="mr-2">
+          <SwitchTheme />
+        </div>
         <RainbowKitCustomConnectButton />
         {isLocalNetwork && <FaucetButton />}
       </div>

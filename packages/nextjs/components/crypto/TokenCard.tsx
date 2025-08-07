@@ -7,7 +7,7 @@ export default function TokenCard({ token }: { token: TokenPrice }) {
 
   const priceChange = token.priceChange24h?.toFixed(2) ?? "0.00";
   const isPositive = token.priceChange24h && token.priceChange24h > 0;
-  const changeClass = isPositive ? "text-green-500" : "text-red-500";
+  const changeClass = isPositive ? "text-success" : "text-error";
   const changeSymbol = isPositive ? "▲" : "▼";
 
   const formatNumber = (num: number) => {
@@ -20,7 +20,9 @@ export default function TokenCard({ token }: { token: TokenPrice }) {
     <div className="bg-base-200 rounded-xl shadow-md hover:shadow-lg transition p-4 w-full h-full">
       {/* Header */}
       <div className="flex justify-between items-center mb-2">
-        <h3 className="text-lg font-semibold">{token.name}</h3>
+        <h3 className="text-lg font-semibold text-base-content">
+          {token.name}
+        </h3>
         <span className="badge badge-outline text-xs">{token.protocol}</span>
       </div>
 
@@ -30,7 +32,9 @@ export default function TokenCard({ token }: { token: TokenPrice }) {
       </div>
 
       {/* Price */}
-      <div className="text-2xl font-bold mb-1">{formattedPrice}</div>
+      <div className="text-2xl font-bold text-base-content mb-1">
+        {formattedPrice}
+      </div>
 
       {/* Price change */}
       <div className={`text-sm font-medium ${changeClass} mb-2`}>
@@ -39,12 +43,8 @@ export default function TokenCard({ token }: { token: TokenPrice }) {
 
       {/* Market data */}
       <div className="text-xs text-base-content/70 space-y-1">
-        {token.marketCap && (
-          <div>MCap: {formatNumber(token.marketCap)}</div>
-        )}
-        {token.volume24h && (
-          <div>Vol 24h: {formatNumber(token.volume24h)}</div>
-        )}
+        {token.marketCap && <div>MCap: {formatNumber(token.marketCap)}</div>}
+        {token.volume24h && <div>Vol 24h: {formatNumber(token.volume24h)}</div>}
       </div>
 
       {/* Timestamp */}
