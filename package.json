@@ -32,5 +32,10 @@
   },
   "engines": {
     "node": ">=20.18.3"
+  },
+  "dependencies": {
+    "lightweight-charts": "^5.0.8",
+    "node-fetch": "^3.3.2",
+    "swr": "^2.3.4"
   }
 }

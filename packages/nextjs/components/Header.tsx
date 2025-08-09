@@ -4,12 +4,12 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { SwitchTheme } from "./SwitchTheme";
 import { Brain, PieChart, Settings, Shield, TrendingUp, Zap } from "lucide-react";
 import { hardhat } from "viem/chains";
 import { Bars3Icon, BugAntIcon } from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useOutsideClick, useTargetNetwork } from "~~/hooks/scaffold-eth";
-import { SwitchTheme } from "./SwitchTheme";
 
 type HeaderMenuLink = {
   label: string;
@@ -19,13 +19,7 @@ type HeaderMenuLink = {
 
 export const menuLinks: HeaderMenuLink[] = [
   { label: "Home", href: "/" },
-  { label: "Trading", href: "/trading", icon: <TrendingUp className="h-4 w-4" /> },
   { label: "AI Analysis", href: "/ai-analysis", icon: <Brain className="h-4 w-4" /> },
-  { label: "Analytics", href: "/analytics", icon: <PieChart className="h-4 w-4" /> },
-  { label: "Strategy", href: "/strategy", icon: <Zap className="h-4 w-4" /> },
-  { label: "Security", href: "/security", icon: <Shield className="h-4 w-4" /> },
-  { label: "Settings", href: "/settings", icon: <Settings className="h-4 w-4" /> },
-  { label: "Debug Contracts", href: "/debug", icon: <BugAntIcon className="h-4 w-4" /> },
 ];
 
 const HeaderMenuLinks = () => {

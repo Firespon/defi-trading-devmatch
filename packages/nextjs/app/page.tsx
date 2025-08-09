@@ -1,5 +1,5 @@
-import LiveAggregator from "@/components/crypto/LiveAggregator";
+import MarketDashboard from "../components/markets/MarketDashboard";
 
-export default function HomePage() {
-  return <LiveAggregator />;
+export default async function Page() {
+  return <MarketDashboard />;
 }
